@@ -1,0 +1,41 @@
+# -*- mode: ruby -*- (language de programmation propre à vagrant)
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  # Configuration de la machine virtuelle pour le serveur SRVANS
+  config.vm.define "SRVANS" do |srvans|
+    srvans.vm.box = "almalinux/8"
+    srvans.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX201 160MHz"
+    srvans.vm.hostname = "SRVANS"
+    srvans.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+    end
+  end
+
+  # Configuration de la machine virtuelle pour le serveur CLI01
+  config.vm.define "CLI01" do |cli01|
+    cli01.vm.box = "almalinux/8"
+    cli01.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX201 160MHz"
+    cli01.vm.hostname = "CLI01"
+    cli01.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+    end
+  end
+
+  # Configuration de la machine virtuelle pour le serveur CLI02
+  config.vm.define "CLI02" do |cli02|
+    cli02.vm.box = "almalinux/8"
+    cli02.vm.network "public_network", bridge: "Intel(R) Wi-Fi 6 AX201 160MHz"
+    cli02.vm.hostname = "CLI02"
+    cli02.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 1
+    end
+  end
+
+  
+
+end
